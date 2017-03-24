@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Книги</string>
+    <string name="delete_beer">Изтрии</string>
+    <string name="deleting_beer">Изтриване на бирата</string>
+    <string name="deleting_beer_message">Сигурни ли сте, че искате да изтриете тази бира</string>
+    <string name="yes">Да</string>
+    <string name="no">Не</string>
+    <string name="settings">Настройки</string>
+    <string name="beer_feedback">Харесахте ли бирата?</string>
+    <string name="settings_title">Настройки</string>
+    <string name="check_box_summary_on">Показва само харесаните бири</string>
+    <string name="check_box_summary_off">Показва всички бири</string>
+    <string name="details">Детайли</string>
+    <string name="check_box_title">Покажи само харесаните бири</string>
+    <string name="empty_view">Няма никакви бири</string>
+</resources>

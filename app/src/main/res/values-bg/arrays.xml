@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tab_names">
+        <item>Таб1</item>
+        <item>Таб2</item>
+    </string-array>
+    <string-array name="drawer_list_items">
+        <item>Настройки</item>
+    </string-array>
+</resources>
