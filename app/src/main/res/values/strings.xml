@@ -7,8 +7,7 @@
     <string name="no">No</string>
     <string name="settings">Settings</string>
     <string name="beer_feedback">Did you liked the beer</string>
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">Close</string>
+
 
     <string name="settings_title">Settings</string>
     <string name="pref_check_box_key">checkBoxKey</string>

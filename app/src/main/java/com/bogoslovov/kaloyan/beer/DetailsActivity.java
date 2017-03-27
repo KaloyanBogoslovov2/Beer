@@ -8,6 +8,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import static android.R.attr.data;
 
 
 /**
@@ -22,6 +25,11 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         setTitle(R.string.details);
 
+        Intent intent = getIntent();
+        TextView title = (TextView) findViewById(R.id.beer_title);
+        TextView information = (TextView) findViewById(R.id.beer_information);
+        title.setText(intent.getStringExtra("title"));
+        information.setText(intent.getStringExtra("information"));
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
