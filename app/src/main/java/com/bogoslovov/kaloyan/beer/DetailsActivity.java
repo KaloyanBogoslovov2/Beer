@@ -1,7 +1,10 @@
 package com.bogoslovov.kaloyan.beer;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -9,8 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bogoslovov.kaloyan.beer.data.BreweryDB;
 
 import static android.R.attr.data;
+import static java.security.AccessController.getContext;
 
 
 /**
@@ -26,10 +33,19 @@ public class DetailsActivity extends AppCompatActivity {
         setTitle(R.string.details);
 
         Intent intent = getIntent();
-        TextView title = (TextView) findViewById(R.id.beer_title);
-        TextView information = (TextView) findViewById(R.id.beer_information);
-        title.setText(intent.getStringExtra("title"));
-        information.setText(intent.getStringExtra("information"));
+        String url = intent.getStringExtra("url");
+
+        getData(url);
+    }
+
+    private void getData(String url){
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected() &&networkInfo.isAvailable()) {
+            new BreweryDB(this).execute(url);
+        }else{
+            Toast.makeText(this, "No internet connection!",Toast.LENGTH_SHORT).show();
+        }
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

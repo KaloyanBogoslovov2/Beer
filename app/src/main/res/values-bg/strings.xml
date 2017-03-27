@@ -14,4 +14,5 @@
     <string name="details">Детайли</string>
     <string name="check_box_title">Покажи само харесаните бири</string>
     <string name="empty_view">Няма никакви бири</string>
+    <string name="loading">Стопля</string>
 </resources>

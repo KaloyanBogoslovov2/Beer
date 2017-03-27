@@ -14,8 +14,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bogoslovov.kaloyan.beer.data.BreweryDB;
+
+import static android.R.attr.data;
 
 /**
  * Created by kaloqn on 3/21/17.
@@ -51,17 +54,11 @@ public class FirstFragment extends Fragment {
         firstListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                getBeer();
+            Intent intent = new Intent(getActivity(),DetailsActivity.class);
+            intent.putExtra("url",Constants.BEER_URL);
+            startActivity(intent);
             }
         });
 
-    }
-
-    private void getBeer(){
-        ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected() &&networkInfo.isAvailable()) {
-            new BreweryDB(getActivity()).execute(Constants.BEER_URL);
-        }
     }
 }

@@ -52,17 +52,12 @@ public class SecondFragment  extends Fragment {
         secondListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                getBrewery();
+            Intent intent = new Intent(getActivity(),DetailsActivity.class);
+            intent.putExtra("url",Constants.GUILD_URL);
+            startActivity(intent);
             }
         });
 
     }
 
-    private void getBrewery(){
-        ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected() &&networkInfo.isAvailable()) {
-            new BreweryDB(getActivity()).execute(Constants.GUILD_URL);
-        }
-    }
 }
